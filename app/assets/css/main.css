@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  --font-nunito: Nunito Sans, sans-serif;
+  --font-inter: Inter, sans-serif;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-black-primary: #131927;
+  --color-black-500: #333333;
+  --color-primary: #0561e8;
+  --color-blue-100: #eef6ff;
+  --color-blue-300: #46b2ff;
+  --color-stroke: #dcdee2;
+  --color-stroke-100: #eaeaea;
+  --color-grey-200: #686a71;
+  --color-dark-200: #7e7e7e;
+  --color-accent-200: #eff6ff;
+  --color-yellow-400: #ebbb4a;
+  --color-disabled-text: #9ea2ae;
+  --color-yellow-300: #ffc70033;
+  --color-warning-main: #ffaa00;
+  --color-accent-pink: #e6027d;
+  --color-accent-blue: #07bffb;
+  --color-blue-50: #63c0f2;
+  --color-sky-blue: #0561e812;
+  --color-success-600: #43b75d;
+  --color-error-500: #ee443f;
+  --color-grey-100: #f5f5f5;
+  --color-dark-100: #9b9b9b;
+}
+
+body {
+  @apply bg-white text-black text-base font-nunito;
+}
+
+.blue_button_outline {
+  @apply px-6 text-sm cursor-pointer border-2 font-semibold border-primary rounded-xl flex items-center justify-center gap-2 text-primary py-3;
+}
+
+.input_label {
+  @apply text-sm font-inter text-black-500;
+}
+
+.input_field {
+  @apply w-full px-4 py-2 border-2 border-stroke rounded-xl focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors;
+}
+.select_field {
+  @apply w-full px-4 py-2 border border-stroke rounded-lg focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors;
+}
+
+.password_input_field {
+  @apply w-full px-4 py-2 mb-1 relative border-2 border-stroke rounded-xl focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors pr-12;
+}
+
+.password_toggle_button {
+  @apply absolute right-4 top-5.5 -translate-y-1/2 text-grey-200 hover:text-black transition-colors;
+}
+
+.gradient_button {
+  @apply w-full py-3 border-2 border-blue-300 cursor-pointer flex items-center justify-center gap-2 bg-primary font-inter text-white rounded-xl hover:bg-primary/90 transition-colors;
+}
+
+.social_auth_button {
+  @apply w-full cursor-pointer font-inter py-3 border border-stroke rounded-xl text-sm flex items-center text-black-500 justify-center gap-3 hover:bg-gray-50 transition-colors;
+}
+
+.login_heading {
+  @apply text-xl md:text-[28px] font-bold text-black mb-2;
+}
+
+.custom_checkbox {
+  @apply w-5 h-5 appearance-none rounded-lg border-2 border-stroke cursor-pointer transition-colors;
+}
+
+.custom_checkbox:checked {
+  @apply bg-primary border-primary;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* APP */
+.app_filled_button {
+  @apply w-full p-3 text-nowrap bg-primary font-medium h-fit text-sm flex items-center gap-2 justify-center cursor-pointer font-inter text-white rounded-xl hover:bg-primary/90 transition-colors;
+}
+.app_outline_button {
+  @apply p-3 text-sm border-2 text-nowrap font-semibold border-primary font-inter flex items-center gap-2 justify-center cursor-pointer rounded-xl text-primary;
+}
