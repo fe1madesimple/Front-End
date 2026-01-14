@@ -77,43 +77,45 @@
       </div>
 
       <!-- Comprehensive Preparation -->
-      <div
-        class="p-12 w-full bg-primary/90 rounded-xl text-white flex items-center justify-between gap-10"
-      >
-        <div class="w-[45%] space-y-10">
-          <h1 class="text-4xl font-bold">
-            Comprehensive Preparation, Proven Methods
-          </h1>
+      <div class="p-1 rounded-2xl bg-linear-to-b from-primary to-[#63C0F2]">
+        <div
+          class="p-12 w-full bg-primary/90 rounded-xl text-white flex items-center justify-between gap-10 bg-[url('/images/f_background.svg')] bg-no-repeat bg-cover"
+        >
+          <div class="w-[45%] space-y-10">
+            <h1 class="text-4xl font-bold">
+              Comprehensive Preparation, Proven Methods
+            </h1>
 
-          <button
-            @click="startFree()"
-            class="flex rounded-xl py-3 px-6 w-fit bg-white items-center text-black font-semibold cursor-pointer font-inter justify-center gap-3"
-          >
-            Start Free Trial
-            <UIcon name="i-heroicons-arrow-right-20-solid" class="text-xl" />
-          </button>
-        </div>
-
-        <div class="w-[40%] space-y-8">
-          <div class="flex items-center justify-between">
-            <div>
-              <h1 class="text-[56px] font-bold">200+</h1>
-              <p class="font-inter">Hours of Expert Content</p>
-            </div>
-            <div>
-              <h1 class="text-[56px] font-bold">1,000+</h1>
-              <p class="font-inter text-lg">Practice Questions</p>
-            </div>
+            <button
+              @click="startFree()"
+              class="flex rounded-xl py-3 px-6 w-fit bg-white items-center text-black font-semibold cursor-pointer font-inter justify-center gap-3"
+            >
+              Start Free Trial
+              <UIcon name="i-heroicons-arrow-right-20-solid" class="text-xl" />
+            </button>
           </div>
-          <!-- 2nd stats -->
-          <div class="flex items-center justify-between">
-            <div>
-              <h1 class="text-[56px] font-bold">8</h1>
-              <p class="font-inter text-lg">Complete FE-1 Subjects</p>
+
+          <div class="w-[40%] space-y-8">
+            <div class="flex items-center justify-between">
+              <div>
+                <h1 class="text-[56px] font-bold">200+</h1>
+                <p class="font-inter">Hours of Expert Content</p>
+              </div>
+              <div>
+                <h1 class="text-[56px] font-bold">1,000+</h1>
+                <p class="font-inter text-lg">Practice Questions</p>
+              </div>
             </div>
-            <div>
-              <h1 class="text-[56px] font-bold">10+</h1>
-              <p class="font-inter text-lg">Years of Past Papers</p>
+            <!-- 2nd stats -->
+            <div class="flex items-center justify-between">
+              <div>
+                <h1 class="text-[56px] font-bold">8</h1>
+                <p class="font-inter text-lg">Complete FE-1 Subjects</p>
+              </div>
+              <div>
+                <h1 class="text-[56px] font-bold">10+</h1>
+                <p class="font-inter text-lg">Years of Past Papers</p>
+              </div>
             </div>
           </div>
         </div>
