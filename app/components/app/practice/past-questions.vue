@@ -36,6 +36,7 @@
             <USelectMenu
               value-key="value"
               label-key="label"
+              placeholder="All Subjects"
               class="w-full"
               :ui="{
                 base: 'select_field cursor-pointer',
@@ -48,6 +49,7 @@
             <USelectMenu
               value-key="value"
               label-key="label"
+              placeholder="All Month/Year"
               class="w-full"
               :ui="{
                 base: 'select_field cursor-pointer',

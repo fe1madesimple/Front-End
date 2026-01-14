@@ -28,7 +28,7 @@
     <!-- Optional center content slot -->
     <div
       v-if="$slots.default"
-      class="absolute inset-0 flex items-center justify-center"
+      class="absolute flex items-center justify-center inset-0"
     >
       <slot />
     </div>

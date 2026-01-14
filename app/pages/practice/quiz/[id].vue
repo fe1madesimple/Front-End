@@ -85,7 +85,7 @@
       <div
         v-if="hasAnswered"
         class="p-4 rounded-xl"
-        :class="isCorrect ? 'bg-success-main/20' : 'bg-error-500/20'"
+        :class="isCorrect ? 'bg-success-600/20' : 'bg-error-500/20'"
       >
         <p
           class="font-bold"
@@ -305,7 +305,7 @@ const nextQuestion = () => {
     if (timerInterval) {
       clearInterval(timerInterval);
     }
-    navigateTo("/practice");
+    navigateTo("/practice/result");
   }
 };
 </script>
