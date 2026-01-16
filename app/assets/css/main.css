@@ -45,7 +45,7 @@ body {
 }
 
 .input_field {
-  @apply w-full px-4 py-2 border-2 border-stroke rounded-xl focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors;
+  @apply w-full px-4 py-2 border-2 border-stroke rounded-xl focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors disabled:bg-gray-50 disabled:text-black-500;
 }
 .select_field {
   @apply w-full px-4 py-2 border border-stroke rounded-lg focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors;
@@ -92,7 +92,7 @@ body {
 }
 
 .warning_banner {
-  @apply p-4 rounded-xl border border-warning-main/40 bg-warning-main/30;
+  @apply p-4 rounded-xl border border-warning-main/40 bg-warning-main/20;
 }
 
 .white_card {

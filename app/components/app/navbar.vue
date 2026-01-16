@@ -31,7 +31,7 @@
         <!-- User Avatar Dropdown -->
         <UDropdownMenu
           :items="userMenuItems"
-          :ui="{ content: 'min-w-40 mr-16' }"
+          :ui="{ content: 'min-w-40 mr-24' }"
         >
           <button
             class="flex cursor-pointer items-center gap-2 focus:outline-none"
@@ -72,8 +72,33 @@ const isActive = (path: string) => {
 
 const userMenuItems = [
   [
-    { label: "Profile", icon: "i-heroicons-user", to: "/profile" },
-    { label: "Settings", icon: "i-heroicons-cog-6-tooth", to: "/settings" },
+    { label: "View Profile", icon: "i-heroicons-user", to: "/profile" },
+    { label: "My Saved Cases", icon: "i-heroicons-user", to: "/profile" },
+    {
+      label: "Subscription & Billing",
+      icon: "i-heroicons-user",
+      to: "/subscription-billing",
+    },
+    {
+      label: "Achievements",
+      icon: "i-heroicons-cog-6-tooth",
+      to: "/achievements",
+    },
+    {
+      label: "Preferences",
+      icon: "i-heroicons-cog-6-tooth",
+      to: "/preferences",
+    },
+    {
+      label: "Privacy & Security",
+      icon: "i-heroicons-cog-6-tooth",
+      to: "/privacy-security",
+    },
+    {
+      label: "Help & Support",
+      icon: "i-heroicons-cog-6-tooth",
+      to: "/help-support",
+    },
   ],
   [
     {
