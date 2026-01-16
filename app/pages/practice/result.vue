@@ -1,26 +1,25 @@
 <template>
   <div class="space-y-6">
     <!-- Badge Unlocked Banner -->
-    <div
-      v-if="showBadge"
-      class="p-4 rounded-xl border border-warning-main/40 bg-warning-main/30 flex items-center justify-between"
-    >
-      <div class="flex items-center gap-3">
-        <span class="text-2xl">🏆</span>
-        <div>
-          <p class="font-bold text-black-primary">Badge Unlocked!</p>
-          <p class="text-black-500">
-            Perfect Score! You answered all questions correctly. Keep this
-            momentum going!
-          </p>
+    <div v-if="showBadge" class="warning_banner">
+      <div class="flex w-full items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🏆</span>
+          <div>
+            <p class="font-bold text-black-primary">Badge Unlocked!</p>
+            <p class="text-black-500">
+              Perfect Score! You answered all questions correctly. Keep this
+              momentum going!
+            </p>
+          </div>
         </div>
+        <button @click="showBadge = false" class="cursor-pointer">
+          <UIcon
+            name="i-heroicons-x-mark-20-solid"
+            class="text-xl text-black-500"
+          />
+        </button>
       </div>
-      <button @click="showBadge = false" class="cursor-pointer">
-        <UIcon
-          name="i-heroicons-x-mark-20-solid"
-          class="text-xl text-black-500"
-        />
-      </button>
     </div>
 
     <!-- Results Card -->

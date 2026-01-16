@@ -46,7 +46,7 @@
     <AppTabs :tabs="tabs" />
 
     <!-- Footer -->
-    <div class="p-6 rounded-xl border space-y-5 border-stroke bg-sky-blue">
+    <div class="p-6 rounded-xl border space-y-5 border-primary bg-sky-blue">
       <h1 class="text-black-500 font-bold text-2xl">Test Your Knowledge</h1>
       <p class="text-disabled-text mt-1">
         Think you've mastered this case? Try a 2-minute quiz to check your
@@ -80,7 +80,7 @@ definePageMeta({
 });
 
 useHead({
-  name: "Subject Summary - FE-1 Simple",
+  title: "Subject Summary - FE-1 Simple",
 });
 
 const saved = ref(false);

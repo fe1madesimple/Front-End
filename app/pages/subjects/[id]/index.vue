@@ -100,9 +100,11 @@
                 :color="subject.color"
               />
             </div>
-            <button class="app_filled_button px-6! w-fit!">
-              Continue Learning
-            </button>
+            <NuxtLink :to="`/subjects/${route.params.id}/modules`">
+              <button class="app_filled_button px-6! w-fit!">
+                Continue Learning
+              </button>
+            </NuxtLink>
           </div>
         </div>
       </div>

@@ -90,3 +90,15 @@ body {
 .app_outline_button {
   @apply p-3 text-sm border-2 text-nowrap font-semibold border-primary font-inter flex items-center gap-2 justify-center cursor-pointer rounded-xl text-primary;
 }
+
+.warning_banner {
+  @apply p-4 rounded-xl border border-warning-main/40 bg-warning-main/30;
+}
+
+.white_card {
+  @apply border border-stroke rounded-xl;
+}
+
+.back_accordion {
+  @apply text-primary flex items-center gap-1 font-semibold;
+}

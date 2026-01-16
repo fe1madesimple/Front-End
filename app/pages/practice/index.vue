@@ -22,7 +22,7 @@ definePageMeta({
 });
 
 useHead({
-  name: "Practice - FE-1 Simple",
+  title: "Practice - FE-1 Simple",
 });
 
 const tabs = [

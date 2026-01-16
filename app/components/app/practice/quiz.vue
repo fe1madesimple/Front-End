@@ -1,12 +1,14 @@
 <template>
   <div class="space-y-10">
     <!-- Tip Banner -->
-    <div class="p-4 rounded-xl bg-warning-main/30 flex items-center gap-3">
-      <span class="text-2xl">💡</span>
-      <p class="text-black-primary font-medium">
-        <span class="font-bold">Tip:</span> Earn streak points by completing one
-        quiz daily!
-      </p>
+    <div class="warning_banner">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">💡</span>
+        <p class="text-black-primary font-medium">
+          <span class="font-bold">Tip:</span> Earn streak points by completing
+          one quiz daily!
+        </p>
+      </div>
     </div>
 
     <!-- Header -->
@@ -25,7 +27,7 @@
       <div
         v-for="(quiz, index) in quizTypes"
         :key="index"
-        class="p-5 rounded-xl h-[250px] border border-stroke bg-white flex flex-col justify-between"
+        class="p-5 rounded-xl h-62.5 border border-stroke bg-white flex flex-col justify-between"
       >
         <!-- Title -->
         <h3 class="font-bold text-black-primary text-xl">{{ quiz.title }}</h3>

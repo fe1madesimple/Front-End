@@ -116,6 +116,6 @@ definePageMeta({
 });
 
 useHead({
-  name: "Library - FE-1 Simple",
+  title: "Library - FE-1 Simple",
 });
 </script>

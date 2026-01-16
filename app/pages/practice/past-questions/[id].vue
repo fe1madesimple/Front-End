@@ -1,10 +1,7 @@
 <template>
   <div class="space-y-6">
     <!-- Back Button -->
-    <NuxtLink
-      to="/practice"
-      class="text-primary flex items-center gap-1 font-semibold"
-    >
+    <NuxtLink to="/practice" class="back_accordion">
       <UIcon name="i-heroicons-chevron-left-20-solid" class="text-xl" />
       Back
     </NuxtLink>

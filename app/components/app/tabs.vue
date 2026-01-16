@@ -6,10 +6,10 @@
         v-for="(tab, index) in tabs"
         :key="index"
         @click="setActiveTab(tab.name)"
-        class="p-2 font-bold cursor-pointer transition-colors"
+        class="p-2 font-semibold cursor-pointer transition-colors"
         :class="
           activeTab === tab.name.toLowerCase()
-            ? 'text-black-500 border-b-2 border-primary'
+            ? 'text-black-500 font-bold border-b-2 border-primary'
             : 'text-disabled-text hover:text-gray-700'
         "
       >
