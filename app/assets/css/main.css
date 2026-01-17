@@ -18,6 +18,7 @@
   --color-dark-200: #7e7e7e;
   --color-accent-200: #eff6ff;
   --color-yellow-400: #ebbb4a;
+  --color-yellow-500: #ffc700;
   --color-disabled-text: #9ea2ae;
   --color-yellow-300: #ffc70033;
   --color-warning-main: #ffaa00;
@@ -46,9 +47,6 @@ body {
 
 .input_field {
   @apply w-full px-4 py-2 border-2 border-stroke rounded-xl focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors disabled:bg-gray-50 disabled:text-black-500;
-}
-.select_field {
-  @apply w-full px-4 py-2 border border-stroke rounded-lg focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors;
 }
 
 .password_input_field {

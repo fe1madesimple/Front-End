@@ -47,7 +47,7 @@
 
       <!-- View All Link -->
       <NuxtLink
-        to="/achievements"
+        to="/all-achievements"
         class="text-primary font-semibold flex items-center gap-1 mt-4"
       >
         View All Achievements

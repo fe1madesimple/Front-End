@@ -59,7 +59,9 @@
                 'inset 0 2px 4px rgba(0,0,0,0.05), inset 0 -2px 4px rgba(0,0,0,0.05)',
             }"
           >
-            <h2>{{ subject.name }}</h2>
+            <h2>
+              {{ subject.name }}
+            </h2>
           </div>
         </div>
 

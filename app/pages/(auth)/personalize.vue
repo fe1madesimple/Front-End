@@ -45,10 +45,7 @@
           value-key="value"
           label-key="label"
           class="w-full"
-          :ui="{
-            base: 'select_field cursor-pointer',
-            trailing: 'text-grey-200',
-          }"
+          size="lg"
         />
       </div>
 
@@ -61,10 +58,7 @@
           value-key="value"
           label-key="label"
           class="w-full"
-          :ui="{
-            base: 'select_field cursor-pointer',
-            trailing: 'text-grey-200',
-          }"
+          size="lg"
         />
       </div>
 

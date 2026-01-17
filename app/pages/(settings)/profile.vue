@@ -25,7 +25,7 @@
     </div>
 
     <!-- Account Details Card -->
-    <div class="white_card p-6!">
+    <div class="white_card bg-white p-6!">
       <!-- Form Fields -->
       <div class="grid grid-cols-3 gap-6">
         <!-- Full Name -->
