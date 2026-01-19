@@ -1,11 +1,5 @@
 <template>
   <div class="flex flex-col gap-8">
-    <!-- Back Button -->
-    <NuxtLink to="/achievements" class="back_accordion">
-      <UIcon name="i-heroicons-chevron-left-20-solid" class="text-xl" />
-      Back
-    </NuxtLink>
-
     <!-- Header -->
     <div>
       <h1 class="text-2xl font-bold text-black-500">Your Study Overview</h1>
@@ -69,7 +63,7 @@ definePageMeta({
 });
 
 useHead({
-  title: "Study Overview - FE-1 Simple",
+  title: "Achievement - FE-1 Simple",
 });
 
 const studyHours = ref(18);

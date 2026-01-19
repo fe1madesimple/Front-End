@@ -47,7 +47,7 @@
 
       <!-- View All Link -->
       <NuxtLink
-        to="/all-achievements"
+        to="/achievement"
         class="text-primary font-semibold flex items-center gap-1 mt-4"
       >
         View All Achievements
@@ -63,7 +63,7 @@ definePageMeta({
 });
 
 useHead({
-  title: "Achievements - FE-1 Simple",
+  title: "Milestone - FE-1 Simple",
 });
 
 const achievements = ref([

@@ -131,7 +131,7 @@ const userMenuItems = [
     {
       label: "Achievement",
       icon: "i-heroicons-trophy",
-      to: "/achievements",
+      to: "/achievement",
     },
     {
       label: "Preferences",

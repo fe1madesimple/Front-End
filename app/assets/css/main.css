@@ -100,3 +100,11 @@ body {
 .back_accordion {
   @apply text-primary flex items-center gap-1 font-semibold;
 }
+
+.error_text {
+  @apply text-error-500 text-sm font-inter;
+}
+
+.input_error {
+  @apply border-error-500!;
+}

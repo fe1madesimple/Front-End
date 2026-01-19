@@ -118,9 +118,9 @@
           <div
             v-for="i in 3"
             :key="i"
-            class="w-[32%] h-[330px] rounded-xl border border-stroke overflow-hidden"
+            class="w-[32%] h-82.5 rounded-xl border border-stroke overflow-hidden"
           >
-            <div class="h-[150px] rounded-t-xl">
+            <div class="h-37.5 rounded-t-xl">
               <img
                 class="w-full h-full object-cover"
                 src="~/assets/images/contract.svg"
@@ -128,7 +128,7 @@
               />
             </div>
 
-            <div class="p-6 flex flex-col justify-between h-[180px]">
+            <div class="p-6 flex flex-col justify-between h-45">
               <h1 class="text-xl font-bold text-black-500">
                 Contract Formation Essentials
               </h1>
@@ -145,7 +145,9 @@
     <!-- Right Column - Stats Sidebar -->
     <div class="space-y-4 w-[25%]">
       <!-- Countdown Card -->
-      <div class="bg-white rounded-xl border-2 border-blue-400 py-10 p-4">
+      <div
+        class="bg-white border-t-primary border-x-primary/80 rounded-xl border-2 border-blue-400 py-10 p-4"
+      >
         <div class="flex items-center gap-4">
           <!-- Circular Progress -->
           <AppCircularProgress :progress="daysProgress" />
@@ -162,7 +164,7 @@
 
       <!-- Time Spent Today -->
       <AppDashboardStatsCard
-        icon=""
+        icon="gavel"
         icon-color="#F59E0B"
         icon-bg-color="#FEF3C7"
         :value="`${hoursToday} Hours`"
@@ -179,7 +181,7 @@
 
       <!-- Weekly Streak -->
       <AppDashboardStatsCard
-        icon=""
+        icon="flash"
         icon-color="#8B5CF6"
         icon-bg-color="#EDE9FE"
         :value="`${weeklyStreak} day`"
@@ -217,7 +219,7 @@
 
       <!-- Average Quiz Score -->
       <AppDashboardStatsCard
-        icon=""
+        icon="cert_badge"
         icon-color="#EC4899"
         icon-bg-color="#FCE7F3"
         :value="`${averageScore}%`"

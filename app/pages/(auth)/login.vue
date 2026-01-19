@@ -5,7 +5,7 @@
     <h1 class="login_heading">Welcome Back</h1>
 
     <!-- Login form -->
-    <form @submit.prevent="handleLogin" class="flex flex-col gap-6 mt-8">
+    <form @submit="onSubmit" class="flex flex-col gap-6 mt-8">
       <!-- Email field -->
       <div class="flex flex-col gap-2">
         <label for="email" class="input_label">Email Address</label>
@@ -15,7 +15,11 @@
           type="email"
           placeholder=""
           class="input_field"
+          :class="{ input_error: emailError }"
         />
+        <p v-if="emailError" class="error_text">
+          {{ emailError }}
+        </p>
       </div>
 
       <!-- Password field -->
@@ -30,21 +34,23 @@
             :type="showPassword ? 'text' : 'password'"
             placeholder=""
             class="password_input_field"
+            :class="{ input_error: passwordError }"
           />
-          <p class="input_label">Between 8 and 72 characters</p>
+          <p v-if="passwordError" class="error_text">
+            {{ passwordError }}
+          </p>
+          <p v-else class="input_label">Between 8 and 72 characters</p>
           <button
             type="button"
             @click="showPassword = !showPassword"
             class="password_toggle_button"
           >
-            <!-- Eye icon -->
             <UIcon
               class="text-xl mt-2"
               :name="
                 !showPassword ? 'i-heroicons-eye' : 'i-heroicons-eye-slash'
               "
             />
-            <!-- Eye off icon -->
           </button>
         </div>
 
@@ -71,7 +77,6 @@
         @click="handleGoogleLogin"
         class="social_auth_button"
       >
-        <!-- Google icon -->
         <img class="w-4" src="~/assets/icons/google.svg" alt="" />
         <span>Log in with Google</span>
       </button>
@@ -82,7 +87,6 @@
         @click="handleAppleLogin"
         class="social_auth_button"
       >
-        <!-- Apple icon -->
         <img class="w-4" src="~/assets/icons/apple.svg" alt="" />
         <span>Log in with Apple</span>
       </button>
@@ -102,6 +106,10 @@
 </template>
 
 <script setup lang="ts">
+import { useForm, useField } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import { loginSchema } from "~/schemas/auth";
+
 definePageMeta({
   layout: "auth",
 });
@@ -110,14 +118,19 @@ useHead({
   title: "Login - FE-1-Simple",
 });
 
-const email = ref("");
-const password = ref("");
 const showPassword = ref(false);
 
-const handleLogin = () => {
+const { handleSubmit } = useForm({
+  validationSchema: toTypedSchema(loginSchema),
+});
+
+const { value: email, errorMessage: emailError } = useField("email");
+const { value: password, errorMessage: passwordError } = useField("password");
+
+const onSubmit = handleSubmit((formValues) => {
   // TODO: Implement login logic
-  console.log("Login with:", email.value, password.value);
-};
+  console.log("Login with:", formValues);
+});
 
 const handleGoogleLogin = () => {
   // TODO: Implement Google OAuth
