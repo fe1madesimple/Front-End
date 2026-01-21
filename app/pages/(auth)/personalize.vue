@@ -13,7 +13,7 @@
     <p class="text-grey-200 mb-8">Let's personalize your experience</p>
 
     <!-- Personalization form -->
-    <form @submit.prevent="handleSubmit" class="flex flex-col gap-6">
+    <form @submit="onSubmit" class="flex flex-col gap-6">
       <!-- Subject selection -->
       <div class="flex flex-col gap-4">
         <label class="text-base font-semibold text-black"
@@ -21,34 +21,34 @@
         >
         <div class="grid grid-cols-2 gap-3">
           <label
-            v-for="subject in subjects"
+            v-for="subject in subjectOptions"
             :key="subject.value"
             class="flex items-center gap-3 cursor-pointer"
           >
             <input
               type="checkbox"
               :value="subject.value"
-              v-model="selectedSubjects"
+              v-model="subjects"
               class="custom_checkbox"
             />
             <span class="text-sm text-black-500">{{ subject.label }}</span>
           </label>
         </div>
+        <p v-if="subjectsError" class="error_text">
+          {{ subjectsError }}
+        </p>
       </div>
 
       <!-- Target exam date -->
       <div class="flex flex-col gap-2">
         <label class="input_label">When is your target exam date?</label>
         <USelectMenu
-          v-model="targetExamDate"
+          v-model="examDate"
           :items="examDates"
           value-key="value"
           label-key="label"
           class="w-full"
-          :ui="{
-            base: 'select_field cursor-pointer',
-            trailing: 'text-grey-200',
-          }"
+          size="lg"
         />
       </div>
 
@@ -56,15 +56,12 @@
       <div class="flex flex-col gap-2">
         <label class="input_label">Daily Study Goal</label>
         <USelectMenu
-          v-model="dailyStudyGoal"
+          v-model="studyGoal"
           :items="studyGoals"
           value-key="value"
           label-key="label"
           class="w-full"
-          :ui="{
-            base: 'select_field cursor-pointer',
-            trailing: 'text-grey-200',
-          }"
+          size="lg"
         />
       </div>
 
@@ -75,6 +72,10 @@
 </template>
 
 <script setup>
+import { useForm, useField } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import { personalizeSchema } from "~/schemas/auth";
+
 definePageMeta({
   layout: "auth",
 });
@@ -86,7 +87,7 @@ useHead({
 // TODO: Get user name from auth store
 const userName = ref("Priscilia");
 
-const subjects = [
+const subjectOptions = [
   { label: "Contract Law", value: "contract-law" },
   { label: "Company Law", value: "company-law" },
   { label: "Criminal Law", value: "criminal-law" },
@@ -112,17 +113,22 @@ const studyGoals = [
   { label: "4+ hours", value: "4-plus-hours" },
 ];
 
-const selectedSubjects = ref([]);
-const targetExamDate = ref(examDates[0]);
-const dailyStudyGoal = ref(studyGoals[2]);
+const { handleSubmit } = useForm({
+  validationSchema: toTypedSchema(personalizeSchema),
+  initialValues: {
+    subjects: [],
+    examDate: examDates[0],
+    studyGoal: studyGoals[2],
+  },
+});
 
-const handleSubmit = () => {
-  console.log("Personalization:", {
-    subjects: selectedSubjects.value,
-    examDate: targetExamDate.value,
-    studyGoal: dailyStudyGoal.value,
-  });
+const { value: subjects, errorMessage: subjectsError } = useField("subjects");
+const { value: examDate } = useField("examDate");
+const { value: studyGoal } = useField("studyGoal");
+
+const onSubmit = handleSubmit((formValues) => {
+  console.log("Personalization:", formValues);
   // TODO: Save preferences and navigate to dashboard
   navigateTo("/dashboard");
-};
+});
 </script>

@@ -9,12 +9,12 @@
       Back To Log In
     </NuxtLink>
 
-    <!-- Forgot Password heading -->
+    <!-- Set new password heading -->
     <h1 class="login_heading">Set new password</h1>
 
-    <!-- Forgot Password form -->
-    <form @submit.prevent="handleSubmit" class="flex flex-col gap-6 mt-10">
-      <!-- Email field -->
+    <!-- New password form -->
+    <form @submit="onSubmit" class="flex flex-col gap-6 mt-10">
+      <!-- Password field -->
       <div class="flex flex-col gap-2">
         <label for="password" class="text-sm font-medium text-black"
           >Password</label
@@ -26,21 +26,23 @@
             :type="showPassword ? 'text' : 'password'"
             placeholder=""
             class="password_input_field"
+            :class="{ input_error: passwordError }"
           />
-          <p class="input_label">Between 8 and 72 characters</p>
+          <p v-if="passwordError" class="error_text">
+            {{ passwordError }}
+          </p>
+          <p v-else class="input_label">Between 8 and 72 characters</p>
           <button
             type="button"
             @click="showPassword = !showPassword"
             class="password_toggle_button"
           >
-            <!-- Eye icon -->
             <UIcon
               class="text-xl mt-2"
               :name="
                 !showPassword ? 'i-heroicons-eye' : 'i-heroicons-eye-slash'
               "
             />
-            <!-- Eye off icon -->
           </button>
         </div>
       </div>
@@ -54,6 +56,10 @@
 </template>
 
 <script setup lang="ts">
+import { useForm, useField } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import { newPasswordSchema } from "~/schemas/auth";
+
 definePageMeta({
   layout: "auth",
 });
@@ -62,12 +68,18 @@ useHead({
   title: "New Password - FE-1-Simple",
 });
 
-const password = ref("");
 const showPassword = ref(false);
 
-const handleSubmit = () => {
+const { handleSubmit } = useForm({
+  validationSchema: toTypedSchema(newPasswordSchema),
+});
+
+const { value: password, errorMessage: passwordError } = useField("password");
+
+const onSubmit = handleSubmit((formValues) => {
+  console.log("New password:", formValues);
   navigateTo({
     path: "/password-reset-success",
   });
-};
+});
 </script>

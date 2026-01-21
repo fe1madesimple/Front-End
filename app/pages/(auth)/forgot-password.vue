@@ -16,7 +16,7 @@
     </p>
 
     <!-- Forgot Password form -->
-    <form @submit.prevent="handleSubmit" class="flex flex-col gap-6">
+    <form @submit="onSubmit" class="flex flex-col gap-6">
       <!-- Email field -->
       <div class="flex flex-col gap-2">
         <label for="email" class="input_label">Email Address</label>
@@ -26,7 +26,11 @@
           type="email"
           placeholder=""
           class="input_field"
+          :class="{ input_error: emailError }"
         />
+        <p v-if="emailError" class="error_text">
+          {{ emailError }}
+        </p>
       </div>
 
       <!-- Reset Password button -->
@@ -38,6 +42,10 @@
 </template>
 
 <script setup lang="ts">
+import { useForm, useField } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import { forgotPasswordSchema } from "~/schemas/auth";
+
 definePageMeta({
   layout: "auth",
 });
@@ -46,12 +54,16 @@ useHead({
   title: "Forgot Password - FE-1-Simple",
 });
 
-const email = ref("");
+const { handleSubmit } = useForm({
+  validationSchema: toTypedSchema(forgotPasswordSchema),
+});
 
-const handleSubmit = () => {
+const { value: email, errorMessage: emailError } = useField("email");
+
+const onSubmit = handleSubmit((formValues) => {
   navigateTo({
     path: "/password-reset",
-    query: { email: email.value },
+    query: { email: formValues.email },
   });
-};
+});
 </script>

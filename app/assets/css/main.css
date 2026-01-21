@@ -18,6 +18,7 @@
   --color-dark-200: #7e7e7e;
   --color-accent-200: #eff6ff;
   --color-yellow-400: #ebbb4a;
+  --color-yellow-500: #ffc700;
   --color-disabled-text: #9ea2ae;
   --color-yellow-300: #ffc70033;
   --color-warning-main: #ffaa00;
@@ -45,10 +46,7 @@ body {
 }
 
 .input_field {
-  @apply w-full px-4 py-2 border-2 border-stroke rounded-xl focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors;
-}
-.select_field {
-  @apply w-full px-4 py-2 border border-stroke rounded-lg focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors;
+  @apply w-full px-4 py-2 border-2 border-stroke rounded-xl focus:outline-none focus:bg-accent-200 focus:border-primary transition-colors disabled:bg-gray-50 disabled:text-black-500;
 }
 
 .password_input_field {
@@ -92,7 +90,7 @@ body {
 }
 
 .warning_banner {
-  @apply p-4 rounded-xl border border-warning-main/40 bg-warning-main/30;
+  @apply p-4 rounded-xl border border-warning-main/40 bg-warning-main/20;
 }
 
 .white_card {
@@ -101,4 +99,12 @@ body {
 
 .back_accordion {
   @apply text-primary flex items-center gap-1 font-semibold;
+}
+
+.error_text {
+  @apply text-error-500 text-sm font-inter;
+}
+
+.input_error {
+  @apply border-error-500!;
 }

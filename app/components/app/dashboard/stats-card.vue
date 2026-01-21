@@ -2,7 +2,7 @@
   <div class="bg-white relative rounded-xl border border-stroke p-4">
     <div class="flex items-start gap-3">
       <!-- Icon -->
-      <div class="w-14 h-14 border border-stroke rounded-xl">
+      <div class="w-14 h-14">
         <img :src="`/icons/${icon}.svg`" alt="" />
       </div>
 
