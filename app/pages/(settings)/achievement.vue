@@ -2,57 +2,57 @@
   <div class="flex flex-col gap-8">
     <!-- Header -->
     <div>
-      <h1 class="text-2xl font-bold text-black-500">Your Study Overview</h1>
+      <h1 class="text-2xl font-bold text-black-500">Milestones Unlocked</h1>
       <p class="text-black-500 mt-1">
-        You've studied {{ studyHours }} hours this week and completed
-        {{ modulesCompleted }} modules across {{ subjectsCount }} subjects.
+        You've earned {{ unlockedCount }} achievements so far — your dedication
+        is showing.
       </p>
     </div>
 
-    <!-- Main Content Card -->
-    <div class="white_card bg-white p-6! space-y-8">
-      <!-- Focus Subjects -->
+    <!-- Achievements List -->
+    <div class="white_card bg-white p-6! space-y-4">
       <div
-        class="border border-stroke rounded-xl p-4 flex items-center justify-between"
+        v-for="achievement in achievements"
+        :key="achievement.id"
+        class="rounded-xl p-4 flex items-center justify-between"
+        :class="
+          achievement.unlocked
+            ? 'warning_banner'
+            : 'bg-gray-200 border border-stroke'
+        "
       >
-        <p class="text-black-500">
-          Your Focus Subjects are
-          <span class="font-bold text-black-primary">{{ focusSubjects }}</span>
-        </p>
-        <button class="text-primary font-semibold cursor-pointer">
-          Edit Subject
-        </button>
-      </div>
-
-      <!-- Motivation Banner -->
-      <div class="warning_banner p-4! flex items-center gap-3">
-        <span class="text-2xl">💡</span>
-        <p class="text-black-primary">
-          Consistency pays off — stay on your streak to unlock your next
-          achievement badge.
-        </p>
-      </div>
-
-      <!-- Stats Grid -->
-      <div class="grid grid-cols-5 gap-4">
-        <div
-          v-for="stat in stats"
-          :key="stat.label"
-          class="border border-stroke rounded-xl p-4 relative"
-        >
-          <div class="flex items-center justify-between">
-            <p class="text-2xl font-semibold text-black-primary">
-              {{ stat.value }}
+        <div class="flex items-center gap-3">
+          <span
+            class="text-2xl"
+            :class="achievement.unlocked ? '' : 'grayscale'"
+          >
+            🏆
+          </span>
+          <div>
+            <h3 class="font-bold">
+              {{ achievement.title }}
+            </h3>
+            <p class="text-dark-200">
+              {{ achievement.description }}
             </p>
-            <div
-              class="bg-white border flex items-center justify-center border-stroke rounded-md p-2 w-fit shadow-xl"
-            >
-              <UIcon :name="stat.icon" class="text-primary font-bold text-xl" />
-            </div>
           </div>
-          <p class="text-dark-200 font-inter mt-4">{{ stat.label }}</p>
         </div>
+        <span
+          class="px-3 py-1 rounded-lg text-sm font-medium bg-white"
+          :class="achievement.unlocked ? 'text-success-600 ' : 'text-gray-400'"
+        >
+          {{ achievement.unlocked ? "Unlocked" : "Locked" }}
+        </span>
       </div>
+
+      <!-- View All Link -->
+      <NuxtLink
+        to="/all-achievements"
+        class="text-primary font-semibold flex items-center gap-1 mt-4"
+      >
+        View All Achievements
+        <UIcon name="i-heroicons-arrow-right-20-solid" class="text-lg" />
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -66,36 +66,46 @@ useHead({
   title: "Achievement - FE-1 Simple",
 });
 
-const studyHours = ref(18);
-const modulesCompleted = ref(22);
-const subjectsCount = ref(6);
-const focusSubjects = ref("Equity / Constitutional Law");
+const achievements = ref([
+  {
+    id: 1,
+    title: "First Lesson Completed",
+    description: "Started your learning journey.",
+    unlocked: true,
+  },
+  {
+    id: 2,
+    title: "3-Day Streak",
+    description: "Consistency begins.",
+    unlocked: true,
+  },
+  {
+    id: 3,
+    title: "50% Subject Mastery",
+    description: "Halfway through your core subject.",
+    unlocked: true,
+  },
+  {
+    id: 4,
+    title: "Exam Simulation Completed",
+    description: "You practised under real exam conditions.",
+    unlocked: true,
+  },
+  {
+    id: 5,
+    title: "7-Day Streak",
+    description: "One week of dedication!",
+    unlocked: false,
+  },
+  {
+    id: 6,
+    title: "90% Quiz Accuracy",
+    description: "Excellence in testing.",
+    unlocked: false,
+  },
+]);
 
-const stats = [
-  {
-    value: "6",
-    label: "Subjects Enrolled",
-    icon: "i-heroicons-calendar",
-  },
-  {
-    value: "22",
-    label: "Lessons Completed",
-    icon: "i-heroicons-check-circle",
-  },
-  {
-    value: "78%",
-    label: "Quiz Accuracy",
-    icon: "i-heroicons-arrow-trending-up",
-  },
-  {
-    value: "5",
-    label: "Practice Attempts",
-    icon: "i-heroicons-calendar",
-  },
-  {
-    value: "7 days",
-    label: "Current Streak",
-    icon: "i-heroicons-trophy",
-  },
-];
+const unlockedCount = computed(() => {
+  return achievements.value.filter((a) => a.unlocked).length;
+});
 </script>
