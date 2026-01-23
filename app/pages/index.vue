@@ -1,13 +1,13 @@
 <template>
-  <div class="flex flex-col items-center space-y-30 justify-center">
+  <div class="flex flex-col items-center xl:space-y-30 space-y-20 justify-center">
     <!-- Hero section -->
     <div
-      class="w-[80%] bg-[url('/images/hero_bg.svg')] flex items-center justify-center h-85"
+      class="w-full xl:w-[80%] xl:bg-[url('/images/hero_bg.svg')] flex items-center justify-center xl:h-85"
     >
-      <div class="text-center flex flex-col items-center space-y-10 w-[60%]">
+      <div class="text-center flex flex-col items-center space-y-10 xl:w-[60%]">
         <div>
-          <h1 class="text-[56px] font-bold">Study Smarter.</h1>
-          <h1 class="text-[56px] leading-none font-bold">
+          <h1 class="xl:text-[56px] text-4xl font-bold">Study Smarter.</h1>
+          <h1 class="xl:text-[56px] text-4xl mt-1 xl:mt-0 leading-none font-bold">
             Pass <span class="text-primary">Confidently</span>.
           </h1>
         </div>
@@ -18,10 +18,10 @@
           feedback.
         </p>
 
-        <div class="flex items-center gap-6">
+        <div class="flex flex-col xl:flex-row items-center gap-6">
           <button
             @click="startFree()"
-            class="gradient_button font-inter font-semibold w-fit! px-6"
+            class="gradient_button font-inter font-semibold w-fit! px-12"
           >
             Start Free Trial
             <UIcon name="i-heroicons-arrow-right-20-solid" class="text-xl" />
@@ -38,14 +38,15 @@
 
     <!-- Dashboard image -->
     <div class="mt-6">
-      <img src="~/assets/images/dashboard_img.png" alt="" />
+      <img class="xl:block hidden" src="~/assets/images/dashboard_img.png" alt="" />
+      <img class="xl:hidden block" src="~/assets/images/dashboard_img_m.png" alt="" />
     </div>
 
     <!-- About -->
-    <div class="space-y-28">
-      <div class="w-full space-y-16">
-        <div class="w-[45%] text-center space-y-4 mx-auto">
-          <h1 class="text-4xl font-bold">
+    <div class="space-y-28 w-full">
+      <div class="space-y-16">
+        <div class="xl:w-[45%] w-full text-center space-y-4 mx-auto">
+          <h1 class="xl:text-4xl text-2xl font-bold">
             Built for how
             <span class="text-primary font-normal">FE-1 students</span> actually
             study.
@@ -56,9 +57,9 @@
           </p>
         </div>
 
-        <div class="flex items-center gap-6">
+        <div class="flex flex-col xl:flex-row items-center gap-6">
           <div
-            class="flex border-2 w-[33%] h-62.5 rounded-xl border-stroke flex-col p-4 justify-between"
+            class="flex border-2 xl:w-[33%] h-62.5 rounded-xl border-stroke flex-col p-4 justify-between"
             v-for="(feature, index) in features"
             :key="index"
           >
@@ -79,67 +80,75 @@
       <!-- Comprehensive Preparation -->
       <div class="p-1 rounded-2xl bg-linear-to-b from-primary to-[#63C0F2]">
         <div
-          class="p-12 w-full bg-primary/90 rounded-xl text-white flex items-center justify-between gap-10 bg-[url('/images/f_background.svg')] bg-no-repeat bg-cover"
+          class="xl:p-12 p-4 w-full bg-primary/90 rounded-xl text-white flex items-center flex-col xl:flex-row justify-between gap-10 bg-[url('/images/f_background.svg')] bg-no-repeat bg-cover"
         >
-          <div class="w-[45%] space-y-10">
-            <h1 class="text-4xl font-bold">
+          <div class="xl:w-[45%] w-full xl:space-y-10">
+            <h1 class="xl:text-4xl text-xl font-bold">
               Comprehensive Preparation, Proven Methods
             </h1>
 
             <button
               @click="startFree()"
-              class="flex rounded-xl py-3 px-6 w-fit bg-white items-center text-black font-semibold cursor-pointer font-inter justify-center gap-3"
+              class="xl:flex hidden rounded-xl py-3 px-6 w-fit bg-white items-center text-black font-semibold cursor-pointer font-inter justify-center gap-3"
             >
               Start Free Trial
               <UIcon name="i-heroicons-arrow-right-20-solid" class="text-xl" />
             </button>
           </div>
 
-          <div class="w-[40%] space-y-8">
-            <div class="flex items-center justify-between">
+          <div class="xl:w-[40%] space-y-8">
+            <div class="flex items-center gap-5 xl:gap-0 justify-between">
               <div>
-                <h1 class="text-[56px] font-bold">200+</h1>
-                <p class="font-inter">Hours of Expert Content</p>
+                <h1 class="xl:text-[56px] text-2xl font-bold">200+</h1>
+                <p class="font-inter text-sm xl:text-base">Hours of Expert Content</p>
               </div>
               <div>
-                <h1 class="text-[56px] font-bold">1,000+</h1>
-                <p class="font-inter text-lg">Practice Questions</p>
+                <h1 class="xl:text-[56px] text-2xl font-bold">1,000+</h1>
+                <p class="font-inter text-sm xl:text-base">Practice Questions</p>
               </div>
             </div>
             <!-- 2nd stats -->
-            <div class="flex items-center justify-between">
+            <div class="flex items-center gap-5 xl:gap-0 justify-between">
               <div>
-                <h1 class="text-[56px] font-bold">8</h1>
-                <p class="font-inter text-lg">Complete FE-1 Subjects</p>
+                <h1 class="xl:text-[56px] text-2xl font-bold">8</h1>
+                <p class="font-inter text-sm xl:text-base">Complete FE-1 Subjects</p>
               </div>
               <div>
-                <h1 class="text-[56px] font-bold">10+</h1>
-                <p class="font-inter text-lg">Years of Past Papers</p>
+                <h1 class="xl:text-[56px] text-2xl font-bold">10+</h1>
+                <p class="font-inter text-sm xl:text-base">Years of Past Papers</p>
               </div>
             </div>
+
+            <button
+              @click="startFree()"
+              class="xl:hidden flex rounded-xl py-3 px-6 w-fit bg-white items-center text-black font-semibold cursor-pointer font-inter justify-center gap-3"
+            >
+              Start Free Trial
+              <UIcon name="i-heroicons-arrow-right-20-solid" class="text-xl" />
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Steps -->
       <div
-        class="p-10 rounded-xl flex items-center justify-between gap-20 bg-sky-blue"
+        class="xl:p-10 p-4 flex flex-col xl:flex-row rounded-xl items-center justify-between xl:gap-20 gap-10 bg-sky-blue"
       >
-        <div class="w-[40%]">
-          <h1 class="text-4xl font-bold">
+        <div class="xl:w-[40%] w-full">
+          <h1 class="xl:text-4xl text-center xl:text-left text-2xl font-bold">
             Your FE-1 Journey, Simplified in
             <span class="text-primary font-semibold">5 Steps</span>
           </h1>
         </div>
 
-        <div class="w-[50%] space-y-4">
+        <div class="xl:w-[50%] w-full space-y-4">
           <div
             v-for="(step, index) in steps"
             :key="index"
             class="border-stroke bg-white flex items-center gap-5 border-2 rounded-xl p-4"
           >
             <div
-              class="w-10 h-10 rounded-full border border-blue-50 flex items-center justify-center text-xl font-bold text-primary shadow-2xl"
+              class="w-10 h-10 shrink-0 rounded-full border bg-accent-200 border-blue-50 flex items-center justify-center xl:text-xl text-lg font-bold text-primary shadow-2xl"
             >
               {{ index + 1 }}
             </div>
@@ -153,14 +162,14 @@
       </div>
 
       <!-- Testimonials -->
-      <div class="space-y-10 overflow-hidden">
-        <div class="flex items-center justify-between">
-          <h1 class="text-4xl font-bold w-1/2">
+      <div class="space-y-10 xl:overflow-hidden overflow-x-auto">
+        <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-6 xl:gap-0">
+          <h1 class="xl:text-4xl text-2xl font-bold xl:w-1/2">
             Trusted by FE-1 candidates preparing in
             <span class="text-primary font-medium">Ireland</span> and abroad.
           </h1>
 
-          <div class="flex items-center gap-3">
+          <div class="flex items-center self-end xl:self-auto gap-3">
             <button
               @click="scrollTestimonials('left')"
               :disabled="cannotScrollLeft"
@@ -202,14 +211,14 @@
 
         <div
           ref="testimonialsContainer"
-          class="w-full max-w-360 flex items-center gap-5 overflow-hidden scroll-smooth"
+          class="w-full xl:max-w-360 max-w-screen flex items-center xl:gap-5 gap-3 xl:overflow-hidden overflow-x-auto scroll-smooth snap-x snap-mandatory"
           style="scrollbar-width: none; -ms-overflow-style: none"
           @scroll="updateScrollState"
         >
           <div
             v-for="i in 6"
             :key="i"
-            class="p-5 w-[40%] shrink-0 space-y-6 bg-sky-blue rounded-xl"
+            class="p-5 xl:w-[40%] w-[calc(100vw-60px)] shrink-0 space-y-6 bg-sky-blue rounded-xl snap-center"
           >
             <img src="@/assets/icons/quotes.svg" alt="" />
             <p>
@@ -230,9 +239,9 @@
     </div>
 
     <!-- Pricing -->
-    <div class="px-12 w-full flex items-center justify-center gap-20">
-      <div class="p-8 border-2 w-[40%] border-stroke rounded-xl">
-        <h1 class="text-black-primary text-3xl font-bold">Premium Access</h1>
+    <div class=" xl:px-12 flex flex-col-reverse xl:flex-row w-full items-center justify-center xl:gap-20 gap-10">
+      <div class="p-8 border-2 w-full xl:w-[40%] border-stroke rounded-xl">
+        <h1 class="text-black-primary xl:text-3xl text-2xl font-bold">Premium Access</h1>
         <h1 class="text-primary mt-2 text-xl font-bold">€9.99/month</h1>
 
         <ul class="space-y-2 mt-12">
@@ -254,19 +263,19 @@
         </button>
       </div>
 
-      <h1 class="w-[40%] font-bold text-4xl">
+      <h1 class="xl:w-[40%] text-center xl:text-left w-full font-bold xl:text-4xl text-2xl">
         Simple. Transparent.
         <span class="text-primary font-medium">No hidden fees</span>.
       </h1>
     </div>
 
     <!-- FAQs -->
-    <div class="w-full flex justify-between gap-20">
-      <h1 class="w-[35%] font-bold text-4xl">
+    <div class="w-full flex xl:flex-row flex-col justify-between xl:gap-20 gap-10">
+      <h1 class="xl:w-[35%] w-full font-bold text-center xl:text-left xl:text-4xl text-2xl">
         Frequently Asked
         <span class="text-primary font-medium">Questions</span>
       </h1>
-      <div class="w-[65%] space-y-3">
+      <div class="xl:w-[65%] w-full space-y-3">
         <div
           v-for="(faq, index) in faqs"
           :key="index"
@@ -299,7 +308,7 @@
 
     <!-- Start Today -->
     <div
-      class="pl-12 w-full rounded-xl flex justify-between items-end gap-10"
+      class="xl:pl-12 pl-5 relative flex xl:flex-row flex-col w-full rounded-xl justify-between items-end gap-10"
       style="
         background: radial-gradient(
             ellipse 60% 50% at 50% 0%,
@@ -309,12 +318,12 @@
           var(--color-warning-main);
       "
     >
-      <div class="w-1/2 pt-12 pb-8 space-y-10">
+      <div class="xl:w-1/2 w-full xl:pt-12 xl:pb-8 pr-5 xl:pr-0 pt-5 pb-5 xl:space-y-10 space-y-5">
         <div>
-          <h1 class="text-4xl text-black-primary font-bold">
+          <h1 class="xl:text-4xl text-2xl text-black-primary font-bold">
             Start today. Master your FE-1 journey.
           </h1>
-          <p class="text-xl mt-3">
+          <p class="xl:text-xl mt-3">
             Join hundreds of learners simplifying their preparation with
             structured lessons and AI-powered insights.
           </p>
@@ -329,9 +338,9 @@
         </button>
       </div>
 
-      <div class="w-[50%] flex items-center h-full!">
+      <div class="xl:w-[50%] absolute xl:relative right-0 bottom-0 w-1/2 flex items-center xl:h-full!">
         <img
-          class="h-65 -ml-20 object-cover"
+          class="xl:h-65 xl:-ml-20 object-cover"
           src="@/assets/images/grouped_images.png"
           alt=""
         />
@@ -378,7 +387,9 @@ onMounted(() => {
 
 const scrollTestimonials = (direction) => {
   if (!testimonialsContainer.value) return;
-  const scrollAmount = 800; // card width + gap
+  
+  const scrollAmount = 800;
+
   const newScrollLeft =
     direction === "left"
       ? testimonialsContainer.value.scrollLeft - scrollAmount

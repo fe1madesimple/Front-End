@@ -129,6 +129,11 @@ const userMenuItems = [
       to: "/subscription-billing",
     },
     {
+      label: "Study Overview",
+      icon: "i-heroicons-book-open",
+      to: "/study-overview",
+    },
+    {
       label: "Achievement",
       icon: "i-heroicons-trophy",
       to: "/achievement",
